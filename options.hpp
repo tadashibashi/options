@@ -31,7 +31,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <utility>
-#include <exception>
 
 class option {
 public:
