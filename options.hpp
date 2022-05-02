@@ -45,22 +45,22 @@ public:
     // Getters / Setters
 
     /// @returns parameter's c-string, or a nullptr if has_flag() is false
-    const char *param() const { return m_param; }
+    [[nodiscard]] const char *param() const { return m_param; }
     /// @returns the flag or '\0' if has_flag() is false
-    char flag() const { return m_flag; }
+    [[nodiscard]] char flag() const { return m_flag; }
     
     /// The index in argv of the param or flag, whichever came first.
-    int index() const { return m_index; }
+    [[nodiscard]] int index() const { return m_index; }
     /// Has a parameter
-    bool has_param() const { return m_param; }
+    [[nodiscard]] bool has_param() const { return m_param; }
     /// Has a flag
-    bool has_flag() const { return m_flag; }
+    [[nodiscard]] bool has_flag() const { return m_flag; }
     /// Has only a parameter and no flag
-    bool is_param_only() const { return m_param && !m_flag; }
+    [[nodiscard]] bool is_param_only() const { return m_param && !m_flag; }
     /// Has only a flag and no parameter
-    bool is_flag_only() const { return m_flag && !m_param; }
+    [[nodiscard]] bool is_flag_only() const { return m_flag && !m_param; }
     /// Has both a flag and a paramter
-    bool is_flagged_param() const { return m_flag && m_param; }
+    [[nodiscard]] bool is_flagged_param() const { return m_flag && m_param; }
 private:
     int m_index;
     char m_flag;
@@ -136,7 +136,7 @@ public:
 
     /// TODO: Implement get_param(char flag, double *val) const and float versions.
 
-    bool has_flag(char flag) const;
+    [[nodiscard]] bool has_flag(char flag) const;
 
     /// Returns a list of every option with a flag. Each may or may not have a
     /// parameter attached.
