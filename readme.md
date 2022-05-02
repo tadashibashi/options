@@ -1,5 +1,5 @@
 # options
-one simple c++ header for handling command-line args
+simple c++ header for handling command-line args
 
 ### supports 
 - single-character flags
