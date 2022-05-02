@@ -2,7 +2,7 @@
 one c++ header for handling program options
 
 ### installation
-drop options.hpp into your project
+drop [options.hpp](https://github.com/tadashibashi/options/blob/main/options.hpp) into your project
 
 ### quick-start example:
 
@@ -21,5 +21,4 @@ int main (int argc, char *argv[])
 }
 ```
 
-please check out test.cpp for further usage
-
+please check out [test.cpp](https://github.com/tadashibashi/options/blob/main/test.cpp) for further usage
