@@ -55,54 +55,54 @@ int test_main(int argc, char *argv[])
     {
         // option 0
         assert_equal(opts[0].has_flag(), false, "option 0 has no flag");
-        assert_equal(opts[0].has_param(), true, "option 0 has a param");
-        assert_equal(opts[0].param(), "program", "option 0's param is \"program\"");
-        assert_equal(opts[0].flag(), '\0', "option 0's param is a null terminator");
-        assert_equal(opts[0].is_param_only(), true, "option 0 is a param-only option");
+        assert_equal(opts[0].has_arg(), true, "option 0 has a arg");
+        assert_equal(opts[0].arg(), "program", "option 0's arg is \"program\"");
+        assert_equal(opts[0].flag(), '\0', "option 0's arg is a null terminator");
+        assert_equal(opts[0].is_arg_only(), true, "option 0 is a arg-only option");
         assert_equal(opts[0].is_flag_only(), false, "option 0 is not a flag-only option");
-        assert_equal(opts[0].is_flagged_param(), false, "option 0 is not a flagged param option");
+        assert_equal(opts[0].is_flagged_arg(), false, "option 0 is not a flagged arg option");
         // option 1
         assert_equal(opts[1].has_flag(), true, "option 1 has a flag");
-        assert_equal(opts[1].has_param(), true, "option 1 has a param");
-        assert_equal(opts[1].param(), "test_file.txt", "option 1's param is \"test_file.txt\"");
+        assert_equal(opts[1].has_arg(), true, "option 1 has a arg");
+        assert_equal(opts[1].arg(), "test_file.txt", "option 1's arg is \"test_file.txt\"");
         assert_equal(opts[1].flag(), 'o', "option 1's flag is \"o\"");
-        assert_equal(opts[1].is_param_only(), false, "option 1 is not a param-only option");
+        assert_equal(opts[1].is_arg_only(), false, "option 1 is not a arg-only option");
         assert_equal(opts[1].is_flag_only(), false, "option 1 is not a flag-only option");
-        assert_equal(opts[1].is_flagged_param(), true, "option 1 is a flagged param option");
+        assert_equal(opts[1].is_flagged_arg(), true, "option 1 is a flagged arg option");
         // option 2
         assert_equal(opts[2].has_flag(), true, "option 2 has a flag");
-        assert_equal(opts[2].has_param(), false, "option 2 has a param");
-        assert_equal(opts[2].param(), (const char *)nullptr, "option 2's param is empty string");
+        assert_equal(opts[2].has_arg(), false, "option 2 has a arg");
+        assert_equal(opts[2].arg(), (const char *)nullptr, "option 2's arg is empty string");
         assert_equal(opts[2].flag(), 'f', "option 2's flag is \"f\"");
-        assert_equal(opts[2].is_param_only(), false, "option 2 is not a param-only option");
+        assert_equal(opts[2].is_arg_only(), false, "option 2 is not a arg-only option");
         assert_equal(opts[2].is_flag_only(), true, "option 2 is a flag-only option");
-        assert_equal(opts[2].is_flagged_param(), false, "option 2 is not a flagged param option");
+        assert_equal(opts[2].is_flagged_arg(), false, "option 2 is not a flagged arg option");
         // option 3
         assert_equal(opts[3].has_flag(), true, "option 3 has a flag");
-        assert_equal(opts[3].has_param(), true, "option 3 has a param");
-        assert_equal(opts[3].param(), "10", "option 3's param is \"10\"");
+        assert_equal(opts[3].has_arg(), true, "option 3 has a arg");
+        assert_equal(opts[3].arg(), "10", "option 3's arg is \"10\"");
         assert_equal(opts[3].flag(), 'n', "option 3's flag is \"n\"");
-        assert_equal(opts[3].is_param_only(), false, "option 3 is not a param-only option");
+        assert_equal(opts[3].is_arg_only(), false, "option 3 is not a arg-only option");
         assert_equal(opts[3].is_flag_only(), false, "option 3 is not a flag-only option");
-        assert_equal(opts[3].is_flagged_param(), true, "option 3 is a flagged param option");
+        assert_equal(opts[3].is_flagged_arg(), true, "option 3 is a flagged arg option");
         // option 4
         assert_equal(opts[4].has_flag(), true, "option 4 has a flag");
-        assert_equal(opts[4].has_param(), true, "option 4 has a param");
-        assert_equal(opts[4].param(), "99999999999999999999999999999999999999999999999999999999999999999999999",
-                     "option 4's param is as expected");
+        assert_equal(opts[4].has_arg(), true, "option 4 has a arg");
+        assert_equal(opts[4].arg(), "99999999999999999999999999999999999999999999999999999999999999999999999",
+                     "option 4's arg is as expected");
         assert_equal(opts[4].flag(), 'q', "option 4's flag is \"q\"");
-        assert_equal(opts[4].is_param_only(), false, "option 4 is not a param-only option");
+        assert_equal(opts[4].is_arg_only(), false, "option 4 is not a arg-only option");
         assert_equal(opts[4].is_flag_only(), false, "option 4 is not a flag-only option");
-        assert_equal(opts[4].is_flagged_param(), true, "option 4 is a flagged param option");
+        assert_equal(opts[4].is_flagged_arg(), true, "option 4 is a flagged arg option");
         // option 5
         assert_equal(opts[5].has_flag(), true, "option 5 has a flag");
-        assert_equal(opts[5].has_param(), true, "option 5 has a param");
-        assert_equal(opts[5].param(), "-99999999999999999999999999999999999999999999999999999999999999999999999",
-                     "option 5's param is as expected");
+        assert_equal(opts[5].has_arg(), true, "option 5 has a arg");
+        assert_equal(opts[5].arg(), "-99999999999999999999999999999999999999999999999999999999999999999999999",
+                     "option 5's arg is as expected");
         assert_equal(opts[5].flag(), 'r', "option 5's flag is \"r\"");
-        assert_equal(opts[5].is_param_only(), false, "option 5 is not a param-only option");
+        assert_equal(opts[5].is_arg_only(), false, "option 5 is not a arg-only option");
         assert_equal(opts[5].is_flag_only(), false, "option 5 is not a flag-only option");
-        assert_equal(opts[5].is_flagged_param(), true, "option 5 is a flagged param option");
+        assert_equal(opts[5].is_flagged_arg(), true, "option 5 is a flagged arg option");
 
     }
 
@@ -161,14 +161,14 @@ int test_main(int argc, char *argv[])
     // Find a specific flag's parameter: found
     {
         const char *filepath = "default_file.txt";
-        opts.get_param('o', &filepath);
+        opts.get_arg('o', &filepath);
         assert_equal(filepath, "test_file.txt", "Find parameter string");
     }
 
     // Find a specific flag's parameter: not found
     {
         const char *filepath = "default_file.txt";
-        opts.get_param('z', &filepath);
+        opts.get_arg('z', &filepath);
         assert_equal(filepath, "default_file.txt", "Out-string is un-mutated when flag missing");
     }
 
@@ -176,50 +176,50 @@ int test_main(int argc, char *argv[])
     {
         int number = -1;
         long long_num = -1;
-        bool result = opts.get_param('n', &number);
-        assert_equal(number, 10, "Integer parsed from param");
-        assert_equal(result, true, "get_param int: returns true on successful parse");
-        result = opts.get_param('n', &long_num);
-        assert_equal(long_num, 10L, "Long integer parsed from param");
-        assert_equal(result, true, "get_param long: returns true on successful parse");
+        bool result = opts.get_arg('n', &number);
+        assert_equal(number, 10, "Integer parsed from arg");
+        assert_equal(result, true, "get_arg int: returns true on successful parse");
+        result = opts.get_arg('n', &long_num);
+        assert_equal(long_num, 10L, "Long integer parsed from arg");
+        assert_equal(result, true, "get_arg long: returns true on successful parse");
     }
 
     // find_param int overload returns false with non-numeric param
     {
         int number = -1;
         long long_num = -1L;
-        bool result = opts.get_param('o', &number);
-        assert_equal(result, false, "get_param returns false non-int");
-        assert_equal(number, -1, "get_param int un-mutated on false");
-        result = opts.get_param('o', &long_num);
-        assert_equal(result, false, "get_param returns false non-long");
-        assert_equal(long_num, -1L, "get_param long un-mutated on false");
+        bool result = opts.get_arg('o', &number);
+        assert_equal(result, false, "get_arg returns false non-int");
+        assert_equal(number, -1, "get_arg int un-mutated on false");
+        result = opts.get_arg('o', &long_num);
+        assert_equal(result, false, "get_arg returns false non-long");
+        assert_equal(long_num, -1L, "get_arg long un-mutated on false");
     }
 
     // find_param int overload returns false when out of range > max val
     {
         int number = -1;
         long long_num = -1;
-        bool result = opts.get_param('q', &number);
-        assert_equal(result, false, "get_param int: returns false on out of range > max val");
-        assert_equal(number, -1, "get_param int: un-mutated on false");
-        assert_equal(errno, ERANGE, "get_param int: errno set to ERANGE");
-        result = opts.get_param('q', &long_num);
-        assert_equal(result, false, "get_param long: returns false on out of range > max val");
-        assert_equal(long_num, -1L, "get_param long: un-mutated on false");
-        assert_equal(errno, ERANGE, "get_param long: errno set to ERANGE");
+        bool result = opts.get_arg('q', &number);
+        assert_equal(result, false, "get_arg int: returns false on out of range > max val");
+        assert_equal(number, -1, "get_arg int: un-mutated on false");
+        assert_equal(errno, ERANGE, "get_arg int: errno set to ERANGE");
+        result = opts.get_arg('q', &long_num);
+        assert_equal(result, false, "get_arg long: returns false on out of range > max val");
+        assert_equal(long_num, -1L, "get_arg long: un-mutated on false");
+        assert_equal(errno, ERANGE, "get_arg long: errno set to ERANGE");
     }
 
     // find_param int overload returns false when out of range < min val
     {
         int number = -1;
         long long_num = -1;
-        bool result = opts.get_param('r', &number);
-        assert_equal(result, false, "get_param int: returns false on out of range < min val");
-        assert_equal(errno, ERANGE, "get_param int: errno set to ERANGE");
-        result = opts.get_param('r', &long_num);
-        assert_equal(result, false, "get_param long: returns false on out of range < min val");
-        assert_equal(errno, ERANGE, "get_param long: errno set to ERANGE");
+        bool result = opts.get_arg('r', &number);
+        assert_equal(result, false, "get_arg int: returns false on out of range < min val");
+        assert_equal(errno, ERANGE, "get_arg int: errno set to ERANGE");
+        result = opts.get_arg('r', &long_num);
+        assert_equal(result, false, "get_arg long: returns false on out of range < min val");
+        assert_equal(errno, ERANGE, "get_arg long: errno set to ERANGE");
     }
 
     // find_param bool
@@ -227,31 +227,31 @@ int test_main(int argc, char *argv[])
         bool check;
         bool result;
 
-        result = opts.get_param('b', &check);
-        assert_equal(result, true, "get_param bool: \"yes\" returns true");
-        assert_equal(check, true, "get_param bool: \"yes\" str gets true");
-        result = opts.get_param('c', &check);
-        assert_equal(result, true, "get_param bool: \"false\" returns true");
-        assert_equal(check, false, "get_param bool: \"false\" str gets false");
-        result = opts.get_param('d', &check);
-        assert_equal(result, true, "get_param bool: \"true\" returns true");
-        assert_equal(check, true, "get_param bool: \"true\" str gets true");
-        result = opts.get_param('e', &check);
-        assert_equal(result, true, "get_param bool: \"no\" returns true");
-        assert_equal(check, false, "get_param bool: \"no\" str results in false");
-        result = opts.get_param('g', &check);
-        assert_equal(result, true, "get_param bool: \"1\" returns true");
-        assert_equal(check, true, "get_param bool: \"1\" str gets true");
-        result = opts.get_param('h', &check);
-        assert_equal(result, true, "get_param bool: \"0\" returns true");
-        assert_equal(check, false, "get_param bool: \"0\" str gets false");
+        result = opts.get_arg('b', &check);
+        assert_equal(result, true, "get_arg bool: \"yes\" returns true");
+        assert_equal(check, true, "get_arg bool: \"yes\" str gets true");
+        result = opts.get_arg('c', &check);
+        assert_equal(result, true, "get_arg bool: \"false\" returns true");
+        assert_equal(check, false, "get_arg bool: \"false\" str gets false");
+        result = opts.get_arg('d', &check);
+        assert_equal(result, true, "get_arg bool: \"true\" returns true");
+        assert_equal(check, true, "get_arg bool: \"true\" str gets true");
+        result = opts.get_arg('e', &check);
+        assert_equal(result, true, "get_arg bool: \"no\" returns true");
+        assert_equal(check, false, "get_arg bool: \"no\" str results in false");
+        result = opts.get_arg('g', &check);
+        assert_equal(result, true, "get_arg bool: \"1\" returns true");
+        assert_equal(check, true, "get_arg bool: \"1\" str gets true");
+        result = opts.get_arg('h', &check);
+        assert_equal(result, true, "get_arg bool: \"0\" returns true");
+        assert_equal(check, false, "get_arg bool: \"0\" str gets false");
 
-        result = opts.get_param('q', &check);
-        assert_equal(result, false, "get_param bool: \"999....\" returns false");
-        result = opts.get_param('f', &check);
-        assert_equal(result, false, "get_param bool: nullptr returns false");
-        result = opts.get_param('n', &check);
-        assert_equal(result, false, "get_param bool: \"10\" returns false");
+        result = opts.get_arg('q', &check);
+        assert_equal(result, false, "get_arg bool: \"999....\" returns false");
+        result = opts.get_arg('f', &check);
+        assert_equal(result, false, "get_arg bool: nullptr returns false");
+        result = opts.get_arg('n', &check);
+        assert_equal(result, false, "get_arg bool: \"10\" returns false");
     }
 
     // Log

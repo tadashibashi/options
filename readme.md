@@ -14,7 +14,7 @@ int main (int argc, char *argv[])
     const options opts(argc, argv);
     
     const char *filepath = "default-value.txt";
-    opts.get_param('o', &filepath);
+    opts.get_arg('o', &filepath);
 
     // do something with filepath...
     ...
