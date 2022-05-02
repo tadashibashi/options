@@ -6,8 +6,6 @@ drop [options.hpp](https://github.com/tadashibashi/options/blob/main/options.hpp
 
 ### quick-start examples:
 
-simple optional args
-
 command line: `program -o my/path.txt`
 ```cpp
 #include "options.hpp"
