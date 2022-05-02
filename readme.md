@@ -1,5 +1,5 @@
 # options
-one c++ header for handling program options
+one c++ header for handling command-line args
 
 ### installation
 drop [options.hpp](https://github.com/tadashibashi/options/blob/main/options.hpp) into your project
