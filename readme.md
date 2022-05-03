@@ -19,16 +19,16 @@ int main (int argc, char *argv[])
     // load args
     const options opts(argc, argv);
     
-    const char *filepath = "default/file.txt";
-    
     // get option "-o"
-    opts.get_arg('o', &filepath);
-
-    // do something with filepath
-    ...
+    const char *outpath;
+    if(opts.get_arg('o', &outpath))
+    {
+        // do something with outpath
+        ...
+    }
 }
 ```
-in addition to strings, you can parse numeric values
+parse numeric arguments
 ```cpp
 int i;
 long l;
@@ -71,7 +71,7 @@ if (opts.get_options('p', &plugins))
 
 ```
 
-log options for quick debugging
+log all options for debugging
 ```cpp
 opts.log();
 
