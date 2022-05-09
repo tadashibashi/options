@@ -379,6 +379,9 @@ inline bool options::get_arg(char flag, long double *val) const
             errno = ERANGE;
         }
 
+        // For some reason, std::stold on Mac sets errno to ENOENT after the catch block
+        // when an invalid arg exception is thrown.
+        // We'll set it here manually to match expected errno behavior for this function.
         if (errno == ENOENT)
         {
             errno = EINVAL;
@@ -413,6 +416,9 @@ inline bool options::get_arg(char flag, double *val) const
             errno = ERANGE;
         }
 
+        // For some reason, std::stold on Mac sets errno to ENOENT after the catch block
+        // when an invalid arg exception is thrown.
+        // We'll set it here manually to match expected errno behavior for this function.
         if (errno == ENOENT)
         {
             errno = EINVAL;
@@ -447,6 +453,9 @@ inline bool options::get_arg(char flag, float *val) const
             errno = ERANGE;
         }
 
+        // For some reason, std::stold on Mac sets errno to ENOENT after the catch block
+        // when an invalid arg exception is thrown.
+        // We'll set it here manually to match expected errno behavior for this function.
         if (errno == ENOENT)
         {
             errno = EINVAL;

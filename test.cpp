@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 
+/// Test suite functions
 int test_main(int argc, char *argv[]);
 template <typename T>
 void assert_equal(T actual, T expected, const char *test_name);
