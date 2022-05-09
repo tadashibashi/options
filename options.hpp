@@ -31,6 +31,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <utility>
+#include <string>
 
 /// class representing a command line option.
 /// It can hold both a flag and an argument, and stores its index in the argv
@@ -164,6 +165,9 @@ public:
     bool get_arg(char flag, bool *val) const;
 
     /// TODO: Implement get_arg(char flag, double *val) const and float versions.
+    bool get_arg(char flag, long double *val) const;
+    bool get_arg(char flag, double *val) const;
+    bool get_arg(char flag, float *val) const;
 
     /// Checks if this container has an option with an indicated flag.
     [[nodiscard]] bool has_flag(char flag) const;
@@ -350,6 +354,107 @@ options::get_arg(char flag, const char **param) const
     return false;
 }
 
+inline bool options::get_arg(char flag, long double *val) const
+{
+    assert(val);
+
+    const char *param;
+    if (get_arg(flag, &param))
+    {
+        if (!param)
+            return false;
+
+        errno = 0;
+        try {
+            long double temp = std::stold(param, nullptr);
+            *val = temp;
+            return true;
+        }
+        catch(const std::invalid_argument &e)
+        {
+            errno = EINVAL;
+        }
+        catch(const std::out_of_range &e)
+        {
+            errno = ERANGE;
+        }
+
+        if (errno == ENOENT)
+        {
+            errno = EINVAL;
+        }
+    }
+
+    return false;
+}
+
+inline bool options::get_arg(char flag, double *val) const
+{
+    assert(val);
+
+    const char *param;
+    if (get_arg(flag, &param))
+    {
+        if (!param)
+            return false;
+
+        errno = 0;
+        try {
+            double temp = std::stod(param, nullptr);
+            *val = temp;
+            return true;
+        }
+        catch(const std::invalid_argument &e)
+        {
+            errno = EINVAL;
+        }
+        catch(const std::out_of_range &e)
+        {
+            errno = ERANGE;
+        }
+
+        if (errno == ENOENT)
+        {
+            errno = EINVAL;
+        }
+    }
+
+    return false;
+}
+
+inline bool options::get_arg(char flag, float *val) const
+{
+    assert(val);
+
+    const char *param;
+    if (get_arg(flag, &param))
+    {
+        if (!param)
+            return false;
+
+        errno = 0;
+        try {
+            float temp = std::stof(param, nullptr);
+            *val = temp;
+            return true;
+        }
+        catch(const std::invalid_argument &e)
+        {
+            errno = EINVAL;
+        }
+        catch(const std::out_of_range &e)
+        {
+            errno = ERANGE;
+        }
+
+        if (errno == ENOENT)
+        {
+            errno = EINVAL;
+        }
+    }
+
+    return false;
+}
 
 inline bool
 options::get_arg(char flag, long *val) const
@@ -491,6 +596,8 @@ options::args() const
     
     return options(std::move(ret));
 }
+
+
 
 
 #endif /* __options_hpp__ */
