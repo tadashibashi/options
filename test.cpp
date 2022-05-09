@@ -342,8 +342,8 @@ int test_main(int argc, char *argv[])
 
     // Log
     {
-        opts.log();
-        assert_equal(std::cout.good(), true, "std::cout is good");
+        opts.log(stdout);
+        assert_equal(ferror(stdout), 0, "out stream is good");
     }
 
     printf("\nTotal %i/%i tests passed.\n", tests_passed, tests_ran);
